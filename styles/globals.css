@@ -25,3 +25,20 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-288px * 7));
+  }
+}
+
+.article-container {
+  animation: scrollLeft 36s linear infinite;
+}
+
+.article-container:hover {
+  animation-play-state: paused;
+}
