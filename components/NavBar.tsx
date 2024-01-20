@@ -122,14 +122,20 @@ export default function NavBar({ mobileMenuOpen, setMobileMenuOpen }: Props) {
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
+            <Link href="/" className="-m-1.5 p-1.5 flex flex-row">
+              <Image
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src="/images/logo-120.png"
                 alt=""
+                width={120}
+                height={120}
               />
-            </a>
+              <p
+                className={`text-indigo-950 leading-8 italic ${moirai.className} text-2xl`}
+              >
+                Boolitz
+              </p>
+            </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
