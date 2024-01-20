@@ -1,5 +1,6 @@
 import React from "react";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 type Props = {
   sidebarOpen: boolean | undefined;
@@ -14,17 +15,17 @@ export default function Hero({
 }: Props) {
   const seeItInActionContent = {
     summary: [
-      "This is point #1: this is a cool app",
-      "This is point #2: this is a useful way to get things done",
-      "This is point #3: this is a futuristic way to explore content",
-      "This is point #4: this is a cool app",
-      "This is point #5: this is a useful way to get things done",
-      "This is point #6: this is a futuristic way to explore content",
+      "This panel is the product. It's a chrome extension that summarizes articles for you in real time.",
+      "The summaries help you understand the content faster, and decide whether a piece of content is worth reading.",
+      "It works by extracting the content from the page you're reading, sending it off to a language model to be summarized, and then displaying the summary in this panel.",
+      "It's completely free to use, it's even leverages the generous free tier of Google's Gemini model.",
+      "Installation is easy, install it from the Chrome Store, login, and input your Gemini API and you're good to go.",
+      "This tool is in active development and I'm adding features all the time - check out the roadmap to see what's coming up and vote on upcoming features.",
     ],
     takeaways: [
-      "This is takeaway #1: this is a cool app",
-      "This is takeaway #2: this is a useful way to get things done",
-      "This is takeaway #3: this is a futuristic way to explore content",
+      "Real-time content summaries can supercharge your reading experience: your comprehension will improve and you'll be a more efficient reader.",
+      "This chrome extension is free to use and easy to install.",
+      "The tool is in active development and is currently the worst it will ever be.",
     ],
   };
 
@@ -68,7 +69,7 @@ export default function Hero({
         <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
           <div className="flex">
             <div className="relative flex items-center gap-x-4 rounded-full px-4 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              <a href="#" className="flex items-center gap-x-1">
+              <Link href="/roadmap" className="flex items-center gap-x-1">
                 <span className="font-semibold text-indigo-600">
                   Product Roadmap
                 </span>
@@ -87,7 +88,7 @@ export default function Hero({
                   className="-mr-2 h-5 w-5 text-gray-400"
                   aria-hidden="true"
                 />
-              </a>
+              </Link>
             </div>
           </div>
           <h1 className="mt-10 max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">

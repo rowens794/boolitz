@@ -1,6 +1,11 @@
 import React from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
+import Image from "next/image";
+import { Wendy_One } from "next/font/google";
+const moirai = Wendy_One({ weight: "400", subsets: ["latin"] });
 
 type Props = {
   mobileMenuOpen: boolean | undefined;
@@ -8,27 +13,34 @@ type Props = {
 };
 
 const navigation = [
-  { name: "Road Map", href: "#" },
-  { name: "Pricing", href: "#" },
-  { name: "Reviews", href: "#" },
+  { name: "Road Map", href: "/roadmap" },
+  { name: "Pricing", href: "/pricing" },
 ];
 
 export default function NavBar({ mobileMenuOpen, setMobileMenuOpen }: Props) {
+  const { data: session } = useSession();
+
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header className="absolute inset-x-0 top-0 z-50 bg-gray-50">
       <nav
         className="flex items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img
+        <div className="flex lg:flex-1 ">
+          <Link href="/" className="-m-1.5 p-1.5 flex flex-row">
+            <Image
               className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              src="/images/logo-120.png"
               alt=""
+              width={120}
+              height={120}
             />
-          </a>
+            <p
+              className={`text-indigo-950 leading-8 italic ${moirai.className} text-2xl`}
+            >
+              Boolitz
+            </p>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -70,15 +82,35 @@ export default function NavBar({ mobileMenuOpen, setMobileMenuOpen }: Props) {
           })}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
-          <a
-            href="#"
-            className="text-sm font-semibold leading-6 text-white px-2 py-1 rounded-md bg-indigo-600 hover:bg-indigo-500 transform -translate-y-1"
-          >
-            Sign up
-          </a>
+          {
+            // if session exists, show sign out button
+            session ? (
+              <button
+                type="button"
+                className="text-sm font-semibold leading-6 text-gray-900"
+                onClick={() => signOut()}
+              >
+                Sign out
+              </button>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                  onClick={() => signIn()}
+                >
+                  Sign in
+                </button>
+
+                <a
+                  href="#"
+                  className="text-sm font-semibold leading-6 text-white px-4 py-1 rounded-md bg-indigo-600 hover:bg-indigo-500"
+                >
+                  Sign up
+                </a>
+              </>
+            )
+          }
         </div>
       </nav>
       <Dialog
@@ -121,12 +153,36 @@ export default function NavBar({ mobileMenuOpen, setMobileMenuOpen }: Props) {
                 ))}
               </div>
               <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
+                {
+                  // if session exists, show sign out button
+                  session ? (
+                    <button
+                      type="button"
+                      className="block rounded-lg px-3 py-2.5 border border-gray-200 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 w-full"
+                      onClick={() => signOut()}
+                    >
+                      Sign out
+                    </button>
+                  ) : (
+                    <div className="flex flex-col gap-4">
+                      <button
+                        type="button"
+                        className="block rounded-lg px-3 py-2.5 border border-gray-200 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 w-full"
+                        onClick={() => signIn()}
+                      >
+                        Sign in
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => signIn()}
+                        className="font-semibold leading-6 text-white px-4 py-2.5 rounded-md bg-indigo-600 hover:bg-indigo-500 w-full"
+                      >
+                        Sign up
+                      </button>
+                    </div>
+                  )
+                }
               </div>
             </div>
           </div>

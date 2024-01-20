@@ -228,10 +228,11 @@ export default function ArticleCarousel({
     <div className="overflow-hidden">
       <div className="pb-16 pt-24 sm:pt-32 bg-gray-900 mt-12 relative px-8">
         <div className="max-w-7xl mx-auto">
-          <h3 className="absolute -top-[22px] sm:-top-[44px] text-4xl sm:text-7xl font-bold tracking-tight mix-blend-difference">
+          <h3 className="absolute -top-[22px] sm:-top-[44px] text-4xl sm:text-7xl font-bold tracking-tight mix-blend-difference pr-8">
             No Seriously.
-            <span className="block font-normal sm:font-bold text-base sm:text-2xl mix-blend-difference sm:tracking-wider sm:pt-4">
-              see how much faster you get to the point.
+            <span className="block font-normal sm:font-semibold text-base sm:text-xl mix-blend-difference sm:tracking-wider sm:pt-4">
+              take it for a test drive with a few example articles and see how
+              much faster you get to the point.
             </span>
           </h3>
         </div>
@@ -282,7 +283,7 @@ const ArticleWrapper = ({
     //set the background-image using inline css
     <div
       onClick={handleClick}
-      className="w-64 h-96 bg-white flex-shrink-0 mr-8 shadow-lg shadow-gray-500 rounded-sm hover:scale-105 transition-transform relative flex flex-col justify-end group cursor-pointer"
+      className="w-64 h-96 bg-white flex-shrink-0 mr-8 shadow-lg shadow-gray-600 rounded-sm hover:scale-105 transition-transform relative flex flex-col justify-end group cursor-pointer"
     >
       <div
         style={{

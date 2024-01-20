@@ -118,18 +118,11 @@ export default function HowsItWork({}: Props) {
 
 const seeItInActionContent = {
   summary: [
-    "This is point #1: this is a cool app",
-    "This is point #2: this is a useful way to get things done",
-    "This is point #3: this is a futuristic way to explore content",
-    "This is point #4: this is a cool app",
-    "This is point #5: this is a useful way to get things done",
-    "This is point #6: this is a futuristic way to explore content",
+    "The chrome extension extracts text from the content you're currently reading and sends it to Google's Gemini API for summarization.",
+    "Google returns the summary directly to your browser, where it's displayed alongside the content you're reading.",
+    "You get the best of both worlds with every article you read: the full story as the author intended and the crib notes to enhance productivity.",
   ],
-  takeaways: [
-    "This is takeaway #1: this is a cool app",
-    "This is takeaway #2: this is a useful way to get things done",
-    "This is takeaway #3: this is a futuristic way to explore content",
-  ],
+  takeaways: [""],
 };
 
 const SidePanel = ({ open }: { open: boolean }) => {
