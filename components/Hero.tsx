@@ -92,8 +92,8 @@ export default function Hero({
             </div>
           </div>
           <h1 className="mt-10 max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Snap Summaries <br />
-            Deep Understanding
+            A Summary for <br />
+            Every Webpage
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Transform the way you consume written content. Our tool cuts through

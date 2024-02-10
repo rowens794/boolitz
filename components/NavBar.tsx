@@ -16,6 +16,10 @@ const navigation = [
   { name: "Road Map", href: "/roadmap" },
   { name: "Pricing", href: "/pricing" },
   { name: "Boolitz Explained", href: "/explained" },
+  {
+    name: "Feedback",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSd5MqO7-REQ-zXFgCkr8ka8aisDYZDlsuLhn_b4seOyOIUiLg/viewform?usp=sf_link",
+  },
 ];
 
 export default function NavBar({ mobileMenuOpen, setMobileMenuOpen }: Props) {

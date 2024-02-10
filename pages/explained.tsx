@@ -109,7 +109,7 @@ const parseContentWithLinksAndImages = (content: string) => {
           <img
             key={`img-${index}`}
             src={src}
-            className="my-8 mx-auto max-w-[450px] rounded-md shadow-xl"
+            className="my-8 mx-auto w-full max-w-[450px] rounded-md shadow-xl"
             alt=""
           />
         );
@@ -323,7 +323,7 @@ const sectionContent: {
       "Boolitz is currently optimized for desktop use on Chrome browser only. I'm just one man and unfortunately I'm prioritizing other things.",
       "I'm working on developing support infrastructure, but there's none right now.  I encourage you to use the feature request tool available at ###text=Boolitz Roadmap url=https://www.boolitz.com/roadmap###. Your feedback helps.",
       "In terms of privacy and permissions, Boolitz requires the following permissions to operate effectively: 'activeTab' and 'storage'. These permissions allow Boolitz to generate summaries for the articles you visit while ensuring your data remains secure and private.",
-      "I'm constantly developing and planning new features for Boolitz. Stay tuned for updates and enhancements that will make your reading experience even better. Be sure to check the roadmap and share your ideas for new features!",
+      "I'm constantly developing and planning new features for Boolitz. Stay tuned for updates and enhancements that will make your reading experience even better. Be sure to check the roadmap and share your ideas for new features! Or if you want to tell me something specific, leave a note in my google form, ###text=here url=https://docs.google.com/forms/d/e/1FAIpQLSd5MqO7-REQ-zXFgCkr8ka8aisDYZDlsuLhn_b4seOyOIUiLg/viewform?usp=sf_link###.",
     ],
   },
   "why-gemini": {
@@ -355,6 +355,8 @@ const sectionContent: {
       "####Step 2:#### Select the 'Get API Key' button. ##src='/images/build-w-g.png'##",
       "####Step 3:#### You'll be prompted to create a new project.  Select the option to 'Create API key in new project' ##src='/images/new-project.png'##",
       "####Step 4:#### You'll see a screen notifying you that your API key has been generated.  Copy the key.  ##src='/images/key-generated.png'##",
+      "####Step 5:#### Return to the Boolitz Extension Popup Menu (next to the url bar in Chrome) and paste the key into the prompt and click 'Submit'.",
+      "That's it!  You're all set to start using Boolitz.  Enjoy!",
     ],
   },
   "how-it-works": {
