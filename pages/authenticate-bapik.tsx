@@ -84,7 +84,7 @@ export async function getServerSideProps(context: any) {
   const cookies = req.headers.cookie;
 
   //make api call to /api/getUserApiKey
-  const res = await fetch("http://localhost:3000/api/getUserApiKey", {
+  const res = await fetch("https://www.boolitz.com/api/getUserApiKey", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

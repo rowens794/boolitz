@@ -56,14 +56,14 @@ const Application = ({
         ))}
       </div>
 
-      <div className=" flex-grow-0 overflow-hidden overflow-y-scroll pb-24 pr-8">
-        <h2 className="text-xl font-bold text-indigo-800 my-4">
+      <div className=" flex-grow-0 overflow-hidden overflow-y-scroll pb-24 pr-8 w-full">
+        <h2 className="text-xl font-bold text-indigo-900 my-4">
           {sectionContent[activeSection].title}
         </h2>
         <div>
           {sectionContent[activeSection].content.map((content, index) => {
             return (
-              <p key={index} className="font-light text-indigo-900 my-4">
+              <p key={index} className="font-light text-gray-900 my-4">
                 {parseContentWithLinksAndImages(content)}
               </p>
             );
@@ -79,18 +79,20 @@ const Application = ({
 };
 
 const parseContentWithLinksAndImages = (content: string) => {
-  // Regular expression to match both custom link and image formats
-  const patternRegex = /###text=(.*?) url=(.*?)###|##src='(.*?)'##/g;
+  // Regular expression to match both custom link and image formats, and bold strings
+  const patternRegex =
+    /###text=(.*?) url=(.*?)###|##src='(.*?)'##|####(.*?)####/g;
+
   // Split the content based on the regex, including the regex match in the result
   const parts = content.split(patternRegex);
 
   return parts
-    .map((part, index) => {
-      if (index % 4 === 1 && part) {
+    .map((part, index, partsArray) => {
+      if (index % 5 === 1 && part) {
         // This is the text for a link
         const text = part;
         // The URL for the link, which is the next element in the array
-        const url = parts[index + 1];
+        const url = partsArray[index + 1];
         return (
           <a
             key={`link-${index}`}
@@ -100,7 +102,7 @@ const parseContentWithLinksAndImages = (content: string) => {
             {text}
           </a>
         );
-      } else if (index % 4 === 3 && part) {
+      } else if (index % 5 === 3 && part) {
         // This is the src for an image
         const src = part;
         return (
@@ -111,11 +113,18 @@ const parseContentWithLinksAndImages = (content: string) => {
             alt=""
           />
         );
-      } else if (index % 4 === 0) {
+      } else if (index % 5 === 4 && part) {
+        // This is a bold string
+        return (
+          <span key={`bold-${index}`} className="font-bold text-indigo-700">
+            {part}
+          </span>
+        );
+      } else if (index % 5 === 0 && part) {
         // This is a text part
         return part;
       }
-      // Filter out the URL and empty parts since they are already processed
+      // Filter out the URL, empty parts, and image src since they are already processed
       return null;
     })
     .filter((part) => part !== null); // Remove null elements resulting from filtering
@@ -278,6 +287,7 @@ const sections = [
       { name: "getting started", href: "getting-started" },
       { name: "why gemini?", href: "why-gemini" },
       { name: "installation", href: "installation" },
+      { name: "installing gemini key", href: "installing-gemini-key" },
     ],
   },
   {
@@ -335,6 +345,16 @@ const sectionContent: {
       "Next up, you'll see a prompt to enter your Google Gemini API key. Now, if you’re scratching your head wondering, 'What’s that?' don’t worry. You’ll need to hop over to Google Cloud, create a project if you haven’t already, and enable the Gemini API for that project. Google will then give you an API key — this is like a special password that lets Boolitz chat with Gemini. Copy that key, paste it into the prompt in Boolitz, and hit 'Submit.'",
       "And guess what? That’s pretty much it. No complicated settings or configurations needed. Once your API key is in, Boolitz kicks into gear and starts doing its thing on all web pages. You don’t need to do anything else; just watch those summaries pop up as you browse.",
       "If you hit any snags or have questions, I know I don’t have a fancy FAQ or support line set up yet (I’m working on it, promise!). But really, the process is so straightforward, I’m confident you’ll get through it without a hitch. And hey, I’m always making things better, so keep an eye out for updates and new features.",
+    ],
+  },
+  "installing-gemini-key": {
+    title: "Install Gemini Key",
+    content: [
+      "Let's review how to install your Gemini API Key into Boolitz.",
+      "####Step 1:#### Login to your google account and visit ###text=https://ai.google.dev/ url=https://ai.google.dev/### and click on 'Get API Key in Google AI Studio. ##src='/images/intro-screen.png'## ",
+      "####Step 2:#### Select the 'Get API Key' button. ##src='/images/build-w-g.png'##",
+      "####Step 3:#### You'll be prompted to create a new project.  Select the option to 'Create API key in new project' ##src='/images/new-project.png'##",
+      "####Step 4:#### You'll see a screen notifying you that your API key has been generated.  Copy the key.  ##src='/images/key-generated.png'##",
     ],
   },
   "how-it-works": {
