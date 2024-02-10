@@ -15,6 +15,7 @@ type Props = {
 const navigation = [
   { name: "Road Map", href: "/roadmap" },
   { name: "Pricing", href: "/pricing" },
+  { name: "Boolitz Explained", href: "/explained" },
 ];
 
 export default function NavBar({ mobileMenuOpen, setMobileMenuOpen }: Props) {
