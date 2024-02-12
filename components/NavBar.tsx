@@ -103,12 +103,13 @@ export default function NavBar({ mobileMenuOpen, setMobileMenuOpen }: Props) {
                   Sign in
                 </button>
 
-                <a
-                  href="#"
+                <button
+                  type="button"
+                  onClick={() => signIn()}
                   className="text-sm font-semibold leading-6 text-white px-4 py-1 rounded-md bg-indigo-600 hover:bg-indigo-500"
                 >
                   Sign up
-                </a>
+                </button>
               </>
             )
           }
