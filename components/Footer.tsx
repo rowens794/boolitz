@@ -13,6 +13,9 @@ export default function Footer({}: Props) {
           <Link href="/privacy" className="text-gray-500 text-xs">
             Privacy Policy
           </Link>
+          <Link href="/tos" className="text-gray-500 text-xs">
+            Terms of Service
+          </Link>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSd5MqO7-REQ-zXFgCkr8ka8aisDYZDlsuLhn_b4seOyOIUiLg/viewform?usp=sf_link"
             className="text-gray-500 text-xs"
