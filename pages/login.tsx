@@ -92,6 +92,9 @@ export default function login({}: Props) {
               alt="Login"
               width={800}
               height={800}
+              quality={70}
+              placeholder="blur"
+              blurDataURL="/images/newspaper-blur.jpeg"
             />
           </div>
         </div>
